@@ -26,6 +26,13 @@ public class MainActivity extends AppCompatActivity {
         memes.add(new Meme(R.raw.escoltam, false, "image", "Escoltam"));
         memes.add(new Meme(R.raw.coca, false, "image", "Coca"));
         memes.add(new Meme(R.raw.pokemon, false, "image", "Pokemon"));
+        memes.add(new Meme(R.raw.casallapoalaes, false, "image", "Casalla a Poalaes"));
+        memes.add(new Meme(R.raw.manosaire, false, "image", "Manos en el Aire"));
+        memes.add(new Meme(R.raw.piscina, false, "image", "Inaguracion Piscina"));
+        memes.add(new Meme(R.raw.subierumble, false, "image", "Subie Rumble"));
+        memes.add(new Meme(R.raw.once, false, "image", "ONCE"));
+
+
 
         Collections.sort(memes);
 

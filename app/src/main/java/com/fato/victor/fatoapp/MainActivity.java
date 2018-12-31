@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         memes.add(new Meme(R.raw.piscina, false, "image", "Inaguracion Piscina"));
         memes.add(new Meme(R.raw.subierumble, false, "image", "Subie Rumble"));
         memes.add(new Meme(R.raw.once, false, "image", "ONCE"));
+        memes.add(new Meme(R.raw.jugos, false, "image", "Jugos"));
 
 
 

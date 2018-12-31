@@ -1,17 +1,20 @@
 package com.fato.victor.fatoapp;
 
-import android.app.Activity;
-import android.app.LauncherActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
-import android.support.v7.widget.RecyclerView;
+import android.net.Uri;
+import android.os.Environment;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.TextView;
-
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,6 +64,75 @@ public class MemeAdapter extends BaseAdapter {
             public void onClick(View v) {
                 mp = MediaPlayer.create(finalConvertView.getContext(), version.getAudio());
                 mp.start();
+            }
+        });
+        final View finalConvertView1 = convertView;
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        holder.button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                String pathSDCard = Environment.getExternalStorageDirectory() + "/Android/data/" + version.getName()+".mp3";
+                try{
+                    InputStream in = finalConvertView1.getResources().openRawResource(version.getAudio());
+                    FileOutputStream out = null;
+                    out = new FileOutputStream(pathSDCard);
+                    byte[] buff = new byte[1024];
+                    int read = 0;
+                    try {
+                        while ((read = in.read(buff)) > 0) {
+                            out.write(buff, 0, read);
+                        }
+                    } finally {
+                        in.close();
+                        out.close();
+
+                        Intent shareMedia = new Intent(Intent.ACTION_SEND);
+                        //set WhatsApp application.
+                        shareMedia.setType("audio/*");
+                        //set path of media file in ExternalStorage.
+                        shareMedia.putExtra(Intent.EXTRA_STREAM, Uri.parse(pathSDCard));
+                        finalConvertView1.getContext().startActivity(Intent.createChooser(shareMedia, "Compartiendo archivo."));
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+//                InputStream inputStream;
+//                FileOutputStream fileOutputStream;
+//                try {
+//                    inputStream = finalConvertView1.getResources().openRawResource(version.getAudio());
+//                    fileOutputStream = new FileOutputStream(
+//                            new File(Environment.getExternalStorageDirectory(), version.getName()));
+//
+//                    byte[] buffer = new byte[1024];
+//                    int length;
+//                    while ((length = inputStream.read(buffer)) > 0) {
+//                        fileOutputStream.write(buffer, 0, length);
+//                    }
+//
+//                    inputStream.close();
+//                    fileOutputStream.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                Intent intent = new Intent(Intent.ACTION_SEND);
+//                intent.putExtra(Intent.EXTRA_STREAM,
+//                        Uri.parse("file://" + Environment.getExternalStorageDirectory() + "/" + version.getName() + ".mp3" ));
+//                intent.setType("audio/*");
+//                finalConvertView1.getContext().startActivity(Intent.createChooser(intent, "Share sound"));
+
+
+
+//                final Intent audIntent = new Intent(android.content.Intent.ACTION_SEND);
+//                audIntent.setType("audio/mp3");
+//                audIntent.putExtra(android.content.Intent.EXTRA_STREAM, version.getAudio());
+//                finalConvertView1.getContext().startActivity(Intent.createChooser(audIntent, "Share Audio "));
+                return false;
             }
         });
         return convertView;

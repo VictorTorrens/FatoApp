@@ -14,6 +14,6 @@
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="85dp"
-        android:background="@color/colorPrimary"/>
+        android:background="#f8d90d"/>
 
 </LinearLayout>

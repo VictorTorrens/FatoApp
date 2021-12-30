@@ -3,7 +3,6 @@ package com.fato.victor.fatoapp;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -13,15 +12,10 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 
-import java.util.Random;
+public class LatigoService extends Service implements SensorEventListener {
 
-public class LatigoServie extends Service implements SensorEventListener {
-
-    private SensorManager mSensorManager;
-    private Sensor mAccelerometer;
     private float mAccel; // acceleration apart from gravity
     private float mAccelCurrent; // current acceleration including gravity
-    private float mAccelLast; // last acceleration including gravity
     MediaPlayer mp;
 
     @Override
@@ -31,8 +25,8 @@ public class LatigoServie extends Service implements SensorEventListener {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mAccelerometer = mSensorManager
+        SensorManager mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        Sensor mAccelerometer = mSensorManager
                 .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorManager.registerListener(this, mAccelerometer,
                 SensorManager.SENSOR_DELAY_UI, new Handler());
@@ -55,7 +49,8 @@ public class LatigoServie extends Service implements SensorEventListener {
         float x = event.values[0];
         float y = event.values[1];
         float z = event.values[2];
-        mAccelLast = mAccelCurrent;
+        // last acceleration including gravity
+        float mAccelLast = mAccelCurrent;
         mAccelCurrent = (float) Math.sqrt(x * x + y * y + z * z);
         float delta = mAccelCurrent - mAccelLast;
         mAccel = mAccel * 0.9f + delta; // perform low-cut filter

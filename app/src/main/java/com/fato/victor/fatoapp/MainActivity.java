@@ -1,6 +1,5 @@
 package com.fato.victor.fatoapp;
 
-import static android.os.Environment.DIRECTORY_DOWNLOADS;
 import static android.os.Environment.DIRECTORY_RINGTONES;
 
 import android.Manifest;
@@ -11,7 +10,6 @@ import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
-import android.media.MediaPlayer;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,18 +21,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-import org.apache.commons.io.FileUtils;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 0;
-    private final File firstAudio= null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,11 +82,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
 
+        // Should we show an explanation?
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            // Should we show an explanation?
+                != PackageManager.PERMISSION_GRANTED)
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
@@ -114,14 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // app-defined int constant. The callback method gets the
                 // result of the request.
             }
-        }
-//        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-//                mp.setAudioSessionId(memes.get(i).audio);
-//                mp.start();
-//            }
-//        });
+
     }
     @Override
     public void onBackPressed() {
@@ -155,7 +139,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.

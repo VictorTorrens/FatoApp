@@ -1,12 +1,10 @@
 package com.fato.victor.fatoapp;
 
-import java.io.File;
-
 public class Meme implements Comparable<Meme>{
-    int audio;
-    boolean img;
-    String image;
-    String name;
+    final int audio;
+    final boolean img;
+    final String image;
+    final String name;
 
     public Meme(int audio, boolean img, String image, String name) {
         this.audio = audio;

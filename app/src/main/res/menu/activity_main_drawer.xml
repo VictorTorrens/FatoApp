@@ -7,11 +7,11 @@
         <item
             android:id="@+id/nav_camera"
             android:icon="@mipmap/audio"
-            android:title="Audios" />
+            android:title="@string/audios" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@mipmap/latigo"
-            android:title="Latigo" />
+            android:title="@string/latigo" />
     </group>
 
 

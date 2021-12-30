@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/victo/Documents/Repositorios/Victor/FatoApp/app/src/main/res/layout/activity_latigo_service.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/victo/Documents/Repositorios/Victor/FatoApp/app/src/main/res/layout/activity_main.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/victo/Documents/Repositorios/Victor/FatoApp/app/src/main/res/layout/app_bar_main.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/victo/Documents/Repositorios/Victor/FatoApp/app/src/main/res/layout/buttonlist.xml" value="0.19791666666666666" />
@@ -10,6 +11,7 @@
         <entry key="..\:/Users/victo/Documents/Repositorios/Victor/FatoApp/app/src/main/res/layout/roundbutton.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/victo/Documents/Repositorios/Victor/FatoApp/app/src/main/res/menu/activity_main_drawer.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/victo/Documents/Repositorios/Victor/FatoApp/app/src/main/res/menu/main.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/victo/Documents/Repositorios/Victor/FatoApp/app/src/main/res/mipmap-anydpi-v26/obiol_icon.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/victo/Documents/Repositorios/Victor/FatoApp/app/src/main/res/xml/filepaths.xml" value="0.20520833333333333" />
       </map>
     </option>

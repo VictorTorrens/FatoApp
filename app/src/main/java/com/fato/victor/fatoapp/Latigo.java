@@ -1,18 +1,12 @@
 package com.fato.victor.fatoapp;
 
-import android.app.IntentService;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.Checkable;
-import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -35,16 +29,13 @@ public class Latigo extends AppCompatActivity implements NavigationView.OnNaviga
 
 
 final Button button = findViewById(R.id.button);
-button.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(Latigo.this, LatigoServie.class);
-        startService(intent);
-        textView.setVisibility(View.VISIBLE);
-        button.setVisibility(View.INVISIBLE);
+button.setOnClickListener(v -> {
+    Intent intent = new Intent(Latigo.this, LatigoService.class);
+    startService(intent);
+    textView.setVisibility(View.VISIBLE);
+    button.setVisibility(View.INVISIBLE);
 
-    }
-    });
+});
 
     }
 
@@ -70,7 +61,6 @@ button.setOnClickListener(new View.OnClickListener() {
 
         return super.onOptionsItemSelected(item);
     }
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.

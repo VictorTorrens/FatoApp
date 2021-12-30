@@ -29,13 +29,12 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:padding="16dp"
-            android:text="Manten pulsado para Compartir!"
+            android:text="@string/shareMsg"
             android:textColor="#a79207"
             android:textSize="18sp" />
 

@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:fullBackupContent="@xml/backup_descriptor">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -41,7 +42,7 @@
             android:resource="@xml/file_paths" />
     </provider>
         <service
-            android:enabled="true" android:name=".LatigoServie">
+            android:enabled="true" android:name=".LatigoService">
         </service>
     </application>
 

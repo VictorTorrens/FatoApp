@@ -61,44 +61,38 @@ public class MemeAdapter extends BaseAdapter {
         final Meme version = getItem(position);
         holder.button.setText(version.getName());
         final View finalConvertView = convertView;
-        holder.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mp = MediaPlayer.create(finalConvertView.getContext(), version.getAudio());
-                mp.start();
-            }
+        holder.button.setOnClickListener(v -> {
+            mp = MediaPlayer.create(finalConvertView.getContext(), version.getAudio());
+            mp.start();
         });
         final View finalConvertView1 = convertView;
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
-        holder.button.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
+        holder.button.setOnLongClickListener(v -> {
 
-                File sound;
-                try {
-                    InputStream inputStream = finalConvertView1.getResources().openRawResource(version.getAudio()); // equivalent to R.raw.yoursound
-                    sound = File.createTempFile(version.getName(), ".mp3");
-                    copyFile(inputStream, new FileOutputStream(sound));
-                } catch (IOException e) {
-                    throw new RuntimeException("Can't create temp file", e);
-                }
-
-                final String AUTHORITY = BuildConfig.APPLICATION_ID + ".provider";
-                Uri uri = getUriForFile(finalConvertView1.getContext().getApplicationContext(), AUTHORITY, sound);
-                Intent share = new Intent(Intent.ACTION_SEND);
-                share.setType("audio/mp3"); // or whatever.
-                share.putExtra(Intent.EXTRA_STREAM, uri);
-                share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                finalConvertView1.getContext().startActivity(Intent.createChooser(share, "Share"));
-
-                return false;
+            File sound;
+            try {
+                InputStream inputStream = finalConvertView1.getResources().openRawResource(version.getAudio());
+                sound = File.createTempFile(version.getName(), ".mp3");
+                copyFile(inputStream, new FileOutputStream(sound));
+            } catch (IOException e) {
+                throw new RuntimeException("Can't create temp file", e);
             }
+
+            final String AUTHORITY = BuildConfig.APPLICATION_ID + ".provider";
+            Uri uri = getUriForFile(finalConvertView1.getContext().getApplicationContext(), AUTHORITY, sound);
+            Intent share = new Intent(Intent.ACTION_SEND);
+            share.setType("audio/mp3"); // or whatever.
+            share.putExtra(Intent.EXTRA_STREAM, uri);
+            share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            finalConvertView1.getContext().startActivity(Intent.createChooser(share, "Share"));
+
+            return false;
         });
         return convertView;
     }
 
-    class ViewHolder {
+    static class ViewHolder {
         Button button;
 
     }

@@ -26,6 +26,7 @@ public class MemeAdapter extends BaseAdapter {
     private final LayoutInflater mInflater;
     private final ArrayList<Meme> versiones;
     MediaPlayer mp;
+    String ultimoAudio = "";
 
 
     public MemeAdapter(Context context, List<Meme> vers) {
@@ -61,13 +62,32 @@ public class MemeAdapter extends BaseAdapter {
         final Meme version = getItem(position);
         holder.button.setText(version.getName());
         final View finalConvertView = convertView;
+
         holder.button.setOnClickListener(v -> {
-            mp = MediaPlayer.create(finalConvertView.getContext(), version.getAudio());
-            mp.start();
+            boolean playing = false;
+
+            if (mp != null) { //No nulo
+                if (mp.isPlaying()){ //Esta reproduciendo
+                    String test = version.getName();
+                    if(test.equals(ultimoAudio)){ //Igual audio anterior
+                        ultimoAudio ="";
+                        playing =true;
+                    }
+                    mp.stop();
+                }
+            }
+            if (!playing) {
+                mp = MediaPlayer.create(finalConvertView.getContext(), version.getAudio());
+                mp.start();
+                ultimoAudio = version.getName();
+
+            }
+
         });
         final View finalConvertView1 = convertView;
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
+
         holder.button.setOnLongClickListener(v -> {
 
             File sound;

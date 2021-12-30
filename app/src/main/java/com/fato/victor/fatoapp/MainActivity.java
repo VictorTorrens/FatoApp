@@ -59,20 +59,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         GridView gridView= findViewById(R.id.listView);
 
         final ArrayList<Meme> memes= new ArrayList<>();
-        memes.add(new Meme(R.raw.drogats, false, "image", "Drogats"));
-        memes.add(new Meme(R.raw.perfecte, false, "image", "Perfecte"));
-        memes.add(new Meme(R.raw.divendres, false, "image", "Divendres"));
-        memes.add(new Meme(R.raw.escoltam, false, "image", "Escoltam"));
+        memes.add(new Meme(R.raw.albertoover9000, false, "image", "Alberto9000"));
+        memes.add(new Meme(R.raw.animomarika, false, "image", "Animo Marika"));
+        memes.add(new Meme(R.raw.caretadefato, false, "image", "Cara de Fato"));
         memes.add(new Meme(R.raw.coca, false, "image", "Coca"));
-        memes.add(new Meme(R.raw.pokemon, false, "image", "Pokemon"));
-        memes.add(new Meme(R.raw.casallapoalaes, false, "image", "Casalla a Poalaes"));
-        memes.add(new Meme(R.raw.manosaire, false, "image", "Manos en el Aire"));
-        memes.add(new Meme(R.raw.piscina, false, "image", "Inaguracion Piscina"));
-        memes.add(new Meme(R.raw.subierumble, false, "image", "Subie Rumble"));
-        memes.add(new Meme(R.raw.once, false, "image", "ONCE"));
+        memes.add(new Meme(R.raw.depredador, false, "image", "Depredador"));
+        memes.add(new Meme(R.raw.depredador9000, false, "image", "Depredador9000"));
+        memes.add(new Meme(R.raw.divendres, false, "image", "Divendres"));
+        memes.add(new Meme(R.raw.drogats, false, "image", "Drogats"));
+        memes.add(new Meme(R.raw.esanoesfea, false, "image", "Esa NO es fea"));
+        memes.add(new Meme(R.raw.escoltam, false, "image", "Escoltam"));
+        memes.add(new Meme(R.raw.fetiche, false, "image", "Fetiche"));
+        memes.add(new Meme(R.raw.fieshta, false, "image", "Fieshta"));
+        memes.add(new Meme(R.raw.fillsdeputes, false, "image", "Fillsdeputes"));
+        memes.add(new Meme(R.raw.gusanito, false, "image", "Gusanito"));
         memes.add(new Meme(R.raw.jugos, false, "image", "Jugos"));
-
-
+        memes.add(new Meme(R.raw.lospenesylosculos, false, "image", "Penes y Culos"));
+        memes.add(new Meme(R.raw.once, false, "image", "ONCE"));
+        memes.add(new Meme(R.raw.perfecte, false, "image", "Perfecte"));
+        memes.add(new Meme(R.raw.pokemon, false, "image", "Pokemon"));
+        memes.add(new Meme(R.raw.siii, false, "image", "Sii!"));
+        memes.add(new Meme(R.raw.subierumble, false, "image", "Subie Rumble"));
+        memes.add(new Meme(R.raw.tesenota, false, "image", "Te Se Nota"));
+        memes.add(new Meme(R.raw.whip, false, "image", "Latigo"));
 
         Collections.sort(memes);
 

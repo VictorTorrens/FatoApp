@@ -61,8 +61,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final ArrayList<Meme> memes= new ArrayList<>();
         memes.add(new Meme(R.raw.albertoover9000, false, "image", "Alberto9000"));
         memes.add(new Meme(R.raw.animomarika, false, "image", "Animo Marika"));
+        memes.add(new Meme(R.raw.bontorreblanqui, false, "image", "Bon Torreblanqui"));
+        memes.add(new Meme(R.raw.buitre, false, "image", "Buitre"));
         memes.add(new Meme(R.raw.caretadefato, false, "image", "Cara de Fato"));
+        memes.add(new Meme(R.raw.chuuu, false, "image", "Chuu"));
         memes.add(new Meme(R.raw.coca, false, "image", "Coca"));
+        memes.add(new Meme(R.raw.cuantomepagas, false, "image", "Cuanto me pagas"));
         memes.add(new Meme(R.raw.depredador, false, "image", "Depredador"));
         memes.add(new Meme(R.raw.depredador9000, false, "image", "Depredador9000"));
         memes.add(new Meme(R.raw.divendres, false, "image", "Divendres"));
@@ -73,14 +77,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         memes.add(new Meme(R.raw.fieshta, false, "image", "Fieshta"));
         memes.add(new Meme(R.raw.fillsdeputes, false, "image", "Fillsdeputes"));
         memes.add(new Meme(R.raw.gusanito, false, "image", "Gusanito"));
+        memes.add(new Meme(R.raw.hueleavicio, false, "image", "Huele a vicio"));
+        memes.add(new Meme(R.raw.joelnieve, false, "image", "Jhoel Nieve"));
         memes.add(new Meme(R.raw.jugos, false, "image", "Jugos"));
         memes.add(new Meme(R.raw.lospenesylosculos, false, "image", "Penes y Culos"));
+        memes.add(new Meme(R.raw.mortdefam, false, "image", "Mort de Fam"));
+        memes.add(new Meme(R.raw.noalasdrogas, false, "image", "No a las Drogas"));
         memes.add(new Meme(R.raw.once, false, "image", "ONCE"));
         memes.add(new Meme(R.raw.perfecte, false, "image", "Perfecte"));
+        memes.add(new Meme(R.raw.perra, false, "image", "Perra"));
         memes.add(new Meme(R.raw.pokemon, false, "image", "Pokemon"));
+        memes.add(new Meme(R.raw.siempretowing, false, "image", "Siempre Towing"));
         memes.add(new Meme(R.raw.siii, false, "image", "Sii!"));
+        memes.add(new Meme(R.raw.sitieneeso, false, "image", "Si tiene eso"));
         memes.add(new Meme(R.raw.subierumble, false, "image", "Subie Rumble"));
+        memes.add(new Meme(R.raw.suenaprrra, false, "image", "La cosa suena Prra"));
         memes.add(new Meme(R.raw.tesenota, false, "image", "Te Se Nota"));
+        memes.add(new Meme(R.raw.vayamaricon, false, "image", "Vaya Maricon"));
+        memes.add(new Meme(R.raw.vinebuscandocobre, false, "image", "Vine buscando cobre..."));
         memes.add(new Meme(R.raw.whip, false, "image", "Latigo"));
 
         Collections.sort(memes);

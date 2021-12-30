@@ -34,23 +34,19 @@ import java.util.Collections;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 0;
-    private File firstAudio= null;
+    private final File firstAudio= null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         String downloadPath = Environment.getExternalStoragePublicDirectory(DIRECTORY_RINGTONES).getAbsolutePath() + "/";
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-        try {
-            saveAudiosToPhone();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -60,29 +56,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            }
 //        });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         GridView gridView= findViewById(R.id.listView);
 
         final ArrayList<Meme> memes= new ArrayList<>();
-//        memes.add(new Meme(R.raw.drogats, false, "image", "Drogats"));
-//        memes.add(new Meme(R.raw.perfecte, false, "image", "Perfecte"));
-//        memes.add(new Meme(R.raw.divendres, false, "image", "Divendres"));
-//        memes.add(new Meme(R.raw.escoltam, false, "image", "Escoltam"));
-//        memes.add(new Meme(R.raw.coca, false, "image", "Coca"));
-//        memes.add(new Meme(R.raw.pokemon, false, "image", "Pokemon"));
-//        memes.add(new Meme(R.raw.casallapoalaes, false, "image", "Casalla a Poalaes"));
-//        memes.add(new Meme(R.raw.manosaire, false, "image", "Manos en el Aire"));
-//        memes.add(new Meme(R.raw.piscina, false, "image", "Inaguracion Piscina"));
-//        memes.add(new Meme(R.raw.subierumble, false, "image", "Subie Rumble"));
-        memes.add(new Meme(R.raw.once, false, "image", "ONCE", new File(downloadPath + "once.mp3")));
-       // memes.add(new Meme(R.raw.jugos, false, "image", "Jugos"));
+        memes.add(new Meme(R.raw.drogats, false, "image", "Drogats"));
+        memes.add(new Meme(R.raw.perfecte, false, "image", "Perfecte"));
+        memes.add(new Meme(R.raw.divendres, false, "image", "Divendres"));
+        memes.add(new Meme(R.raw.escoltam, false, "image", "Escoltam"));
+        memes.add(new Meme(R.raw.coca, false, "image", "Coca"));
+        memes.add(new Meme(R.raw.pokemon, false, "image", "Pokemon"));
+        memes.add(new Meme(R.raw.casallapoalaes, false, "image", "Casalla a Poalaes"));
+        memes.add(new Meme(R.raw.manosaire, false, "image", "Manos en el Aire"));
+        memes.add(new Meme(R.raw.piscina, false, "image", "Inaguracion Piscina"));
+        memes.add(new Meme(R.raw.subierumble, false, "image", "Subie Rumble"));
+        memes.add(new Meme(R.raw.once, false, "image", "ONCE"));
+        memes.add(new Meme(R.raw.jugos, false, "image", "Jugos"));
 
 
 
@@ -129,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -173,14 +169,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    private void saveAudiosToPhone() throws IOException {
-
-
-
-    }
 }
